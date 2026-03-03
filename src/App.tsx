@@ -36,9 +36,10 @@ export default function App() {
 
         {/* Banner 1: ANCOR Academy */}
         <a
-          href="#"
-          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02]"
-          onClick={(e) => e.preventDefault()}
+          href="https://ancoracademy.ancorcarreira.com.br/"
+          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <ImageWithFallback
             src={imgAncorAcademy}
@@ -49,9 +50,10 @@ export default function App() {
 
         {/* Banner 2: Diagnóstico ANCOR */}
         <a
-          href="#"
-          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02]"
-          onClick={(e) => e.preventDefault()}
+          href="https://diagnostico.ancorcarreira.com.br/"
+          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <ImageWithFallback
             src={imgDiagnostico}
@@ -62,9 +64,10 @@ export default function App() {
 
         {/* Banner 3: A Primeira Segunda-Feira: O Curso */}
         <a
-          href="#"
-          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02]"
-          onClick={(e) => e.preventDefault()}
+          href="https://ocurso.ancorcarreira.com.br/"
+          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <ImageWithFallback
             src={imgCurso}
@@ -75,9 +78,10 @@ export default function App() {
 
         {/* Banner 4: Livro Best Seller */}
         <a
-          href="#"
-          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02]"
-          onClick={(e) => e.preventDefault()}
+          href="https://www.aprimeirasegundafeira.com.br/"
+          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <ImageWithFallback
             src={imgLivro}
@@ -88,9 +92,8 @@ export default function App() {
 
         {/* Banner 5: Palestras e Programas In Company */}
         <a
-          href="#"
-          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02]"
-          onClick={(e) => e.preventDefault()}
+          href="mailto:contato@ancorconsultoria.com.br"
+          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
         >
           <ImageWithFallback
             src={imgPalestras}
@@ -101,9 +104,10 @@ export default function App() {
 
         {/* Banner 6: Do Topo ao Próximo Ciclo */}
         <a
-          href="#"
-          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02]"
-          onClick={(e) => e.preventDefault()}
+          href="https://workshop.ancorcarreira.com.br/"
+          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <ImageWithFallback
             src={imgDoTopo}
@@ -114,9 +118,10 @@ export default function App() {
 
         {/* Banner 7: Mari no LinkedIn */}
         <a
-          href="#"
-          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02]"
-          onClick={(e) => e.preventDefault()}
+          href="https://www.linkedin.com/in/maristelagorayb/"
+          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <ImageWithFallback
             src={imgLinkedin}
@@ -127,9 +132,10 @@ export default function App() {
 
         {/* Banner 8: Contato via WhatsApp */}
         <a
-          href="#"
-          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02]"
-          onClick={(e) => e.preventDefault()}
+          href="http://wa.me/5511999051956"
+          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <ImageWithFallback
             src={imgWhatsApp}

@@ -78,7 +78,7 @@ export default function App() {
 
         {/* Banner 4: Livro Best Seller */}
         <a
-          href="https://www.aprimeirasegundafeira.com.br/"
+          href="https://amzn.to/4qS6vEp"
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"

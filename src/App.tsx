@@ -4,7 +4,7 @@ import { ImageWithFallback } from './components/figma/ImageWithFallback';
 // Profile photo
 import imgProfile from "figma:asset/9f85cd0b96c2ecf7f4416502f45ea8897af10de7.png";
 
-// Banner images (in order)
+// Banner images (originais)
 import imgAncorAcademy from "figma:asset/dfc67643778774387e27aa90029f359e2ef1044d.png";
 import imgDiagnostico from "figma:asset/cb0e3be767048f3dbf5f4e0df4f3a59ce1e359af.png";
 import imgCurso from "figma:asset/fed098a5ff178043b9ce12cf583d51973559e12d.png";
@@ -14,7 +14,18 @@ import imgDoTopo from "figma:asset/e181caf17f12511fc31c15845ea4d42a38b6dea5.png"
 import imgLinkedin from "figma:asset/95711d847fb9841e88462015c7fa79cc3321d028.png";
 import imgWhatsApp from "figma:asset/afecbc82c2ee6c8c191850282e0f2aee449cf54f.png";
 
+// NOVA IMAGEM LOCAL (Certifique-se que o arquivo banner-instagram.png está na mesma pasta deste App.tsx)
+import imgInstagram from "./banner-instagram.png";
+
 export default function App() {
+  // Lógica para detectar a "página" /linkedin na URL sem precisar de bibliotecas extras
+  const isLinkedinRoute = window.location.pathname.includes('/linkedin');
+
+  // Configuração dinâmica do 7º Banner
+  const banner7Src = isLinkedinRoute ? imgInstagram : imgLinkedin;
+  const banner7Href = isLinkedinRoute ? "https://www.instagram.com/maristelagorayb/" : "https://www.linkedin.com/in/maristelagorayb/";
+  const banner7Alt = isLinkedinRoute ? "Instagram Maristela Gorayb" : "Mari no LinkedIn";
+
   return (
     <div className="min-h-screen bg-[#F1F1F1] flex flex-col items-center pt-12 pb-24 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-2xl flex flex-col items-center gap-8">
@@ -116,16 +127,16 @@ export default function App() {
           />
         </a>
 
-        {/* Banner 7: Mari no LinkedIn */}
+        {/* Banner 7: DINÂMICO (LinkedIn ou Instagram) */}
         <a
-          href="https://www.linkedin.com/in/maristelagorayb/"
+          href={banner7Href}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"
         >
           <ImageWithFallback
-            src={imgLinkedin}
-            alt="Mari no LinkedIn"
+            src={banner7Src}
+            alt={banner7Alt}
             className="w-full h-auto rounded-[32px] block"
           />
         </a>

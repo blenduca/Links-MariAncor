@@ -10,7 +10,6 @@ import imgDiagnostico from "figma:asset/cb0e3be767048f3dbf5f4e0df4f3a59ce1e359af
 import imgCurso from "figma:asset/fed098a5ff178043b9ce12cf583d51973559e12d.png";
 import imgLivro from "figma:asset/95e9d907cea4e5766322addc7be79b1fefd4ef46.png";
 import imgPalestras from "figma:asset/288b366f11d3c38401d574b0159e2820c4a5ddeb.png";
-import imgDoTopo from "figma:asset/e181caf17f12511fc31c15845ea4d42a38b6dea5.png";
 import imgLinkedin from "figma:asset/95711d847fb9841e88462015c7fa79cc3321d028.png";
 import imgWhatsApp from "figma:asset/afecbc82c2ee6c8c191850282e0f2aee449cf54f.png";
 
@@ -109,20 +108,6 @@ export default function App() {
           <ImageWithFallback
             src={imgPalestras}
             alt="Palestras e Programas In Company"
-            className="w-full h-auto rounded-[32px] block"
-          />
-        </a>
-
-        {/* Banner 6: Do Topo ao Próximo Ciclo */}
-        <a
-          href="https://workshop.ancorcarreira.com.br/"
-          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <ImageWithFallback
-            src={imgDoTopo}
-            alt="Do Topo ao Próximo Ciclo"
             className="w-full h-auto rounded-[32px] block"
           />
         </a>

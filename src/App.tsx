@@ -17,17 +17,22 @@ import imgWhatsApp from "figma:asset/afecbc82c2ee6c8c191850282e0f2aee449cf54f.pn
 import imgInstagram from "./banner-instagram.png";
 
 // Utilitário: pega as UTMs da URL atual e as adiciona a uma URL de destino
+// utm_campaign é sempre "links_mari" nesta página (fixo), outros UTMs vêm da URL
 function appendUtms(destinationUrl: string): string {
   const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
   const currentParams = new URLSearchParams(window.location.search);
-  const utmsToPass = new URLSearchParams();
+
+  // Defaults desta página — podem ser sobrescritos pelos params da URL
+  const defaults: Record<string, string> = {
+    utm_campaign: 'links_mari',
+  };
+
+  const utmsToPass = new URLSearchParams(defaults);
 
   UTM_KEYS.forEach((key) => {
     const value = currentParams.get(key);
-    if (value) utmsToPass.set(key, value);
+    if (value) utmsToPass.set(key, value); // URL tem prioridade
   });
-
-  if ([...utmsToPass].length === 0) return destinationUrl;
 
   // Garante que não quebramos âncoras ou params já existentes
   const url = new URL(destinationUrl);

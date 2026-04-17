@@ -16,6 +16,25 @@ import imgWhatsApp from "figma:asset/afecbc82c2ee6c8c191850282e0f2aee449cf54f.pn
 // NOVA IMAGEM LOCAL (Certifique-se que o arquivo banner-instagram.png está na mesma pasta deste App.tsx)
 import imgInstagram from "./banner-instagram.png";
 
+// Utilitário: pega as UTMs da URL atual e as adiciona a uma URL de destino
+function appendUtms(destinationUrl: string): string {
+  const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  const currentParams = new URLSearchParams(window.location.search);
+  const utmsToPass = new URLSearchParams();
+
+  UTM_KEYS.forEach((key) => {
+    const value = currentParams.get(key);
+    if (value) utmsToPass.set(key, value);
+  });
+
+  if ([...utmsToPass].length === 0) return destinationUrl;
+
+  // Garante que não quebramos âncoras ou params já existentes
+  const url = new URL(destinationUrl);
+  utmsToPass.forEach((value, key) => url.searchParams.set(key, value));
+  return url.toString();
+}
+
 export default function App() {
   // Lógica para detectar a "página" /linkedin na URL sem precisar de bibliotecas extras
   const isLinkedinRoute = window.location.pathname.includes('/linkedin');
@@ -23,7 +42,7 @@ export default function App() {
   // Configuração dinâmica do 7º Banner
   const banner7Src = isLinkedinRoute ? imgInstagram : imgLinkedin;
   const banner7Href = isLinkedinRoute ? "https://www.instagram.com/maristelagorayb/" : "https://www.linkedin.com/in/maristelagorayb/";
-  const banner7Alt = isLinkedinRoute ? "Instagram Maristela Gorayb" : "Mari no LinkedIn";
+  const banner7Alt = isLinkedinRoute ? "Instagram Maristela Gorayeb" : "Mari no LinkedIn";
 
   return (
     <div className="min-h-screen bg-[#F1F1F1] flex flex-col items-center pt-12 pb-24 px-4 sm:px-6 lg:px-8">
@@ -46,7 +65,7 @@ export default function App() {
 
         {/* Banner 1: ANCOR Academy */}
         <a
-          href="https://ancoracademy.ancorcarreira.com.br/"
+          href={appendUtms("https://ancoracademy.ancorcarreira.com.br/")}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"
@@ -60,7 +79,7 @@ export default function App() {
 
         {/* Banner 2: Diagnóstico ANCOR */}
         <a
-          href="https://diagnostico.ancorcarreira.com.br/"
+          href={appendUtms("https://diagnostico.ancorcarreira.com.br/")}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"
@@ -74,7 +93,7 @@ export default function App() {
 
         {/* Banner 3: A Primeira Segunda-Feira: O Curso */}
         <a
-          href="https://ocurso.ancorcarreira.com.br/"
+          href={appendUtms("https://ocurso.ancorcarreira.com.br/")}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"
@@ -88,7 +107,7 @@ export default function App() {
 
         {/* Banner 4: Livro Best Seller */}
         <a
-          href="https://amzn.to/4qS6vEp"
+          href={appendUtms("https://amzn.to/4qS6vEp")}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"
@@ -114,7 +133,7 @@ export default function App() {
 
         {/* Banner 7: DINÂMICO (LinkedIn ou Instagram) */}
         <a
-          href={banner7Href}
+          href={appendUtms(banner7Href)}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"
@@ -128,7 +147,7 @@ export default function App() {
 
         {/* Banner 8: Contato via WhatsApp */}
         <a
-          href="http://wa.me/5511999007624"
+          href={appendUtms("http://wa.me/5511999007624")}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"

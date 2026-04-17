@@ -17,21 +17,23 @@ import imgWhatsApp from "figma:asset/afecbc82c2ee6c8c191850282e0f2aee449cf54f.pn
 import imgInstagram from "./banner-instagram.png";
 
 // Utilitário: pega as UTMs da URL atual e as adiciona a uma URL de destino
-// utm_campaign é sempre "links_mari" nesta página (fixo), outros UTMs vêm da URL
-function appendUtms(destinationUrl: string): string {
+// Prioridade: params da URL > routeDefaults > defaults fixos da página
+function appendUtms(destinationUrl: string, routeDefaults: Record<string, string> = {}): string {
   const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
   const currentParams = new URLSearchParams(window.location.search);
 
-  // Defaults desta página — podem ser sobrescritos pelos params da URL
-  const defaults: Record<string, string> = {
+  // Defaults fixos desta página (menor prioridade)
+  const pageDefaults: Record<string, string> = {
     utm_campaign: 'links_mari',
   };
 
-  const utmsToPass = new URLSearchParams(defaults);
+  // Merge: pageDefaults < routeDefaults < params da URL
+  const merged = { ...pageDefaults, ...routeDefaults };
+  const utmsToPass = new URLSearchParams(merged);
 
   UTM_KEYS.forEach((key) => {
     const value = currentParams.get(key);
-    if (value) utmsToPass.set(key, value); // URL tem prioridade
+    if (value) utmsToPass.set(key, value); // URL sempre tem prioridade
   });
 
   // Garante que não quebramos âncoras ou params já existentes
@@ -43,6 +45,14 @@ function appendUtms(destinationUrl: string): string {
 export default function App() {
   // Lógica para detectar a "página" /linkedin na URL sem precisar de bibliotecas extras
   const isLinkedinRoute = window.location.pathname.includes('/linkedin');
+
+  // Defaults de UTM específicos por rota:
+  // No /linkedin o LinkedIn não injeta UTMs automaticamente, então forçamos utm_source=linkedin
+  const routeUtmDefaults: Record<string, string> = isLinkedinRoute
+    ? { utm_source: 'linkedin', utm_medium: 'social' }
+    : {};
+
+  const withUtms = (url: string) => appendUtms(url, routeUtmDefaults);
 
   // Configuração dinâmica do 7º Banner
   const banner7Src = isLinkedinRoute ? imgInstagram : imgLinkedin;
@@ -70,7 +80,7 @@ export default function App() {
 
         {/* Banner 1: ANCOR Academy */}
         <a
-          href={appendUtms("https://ancoracademy.ancorcarreira.com.br/")}
+          href={withUtms("https://ancoracademy.ancorcarreira.com.br/")}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"
@@ -84,7 +94,7 @@ export default function App() {
 
         {/* Banner 2: Diagnóstico ANCOR */}
         <a
-          href={appendUtms("https://diagnostico.ancorcarreira.com.br/")}
+          href={withUtms("https://diagnostico.ancorcarreira.com.br/")}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"
@@ -98,7 +108,7 @@ export default function App() {
 
         {/* Banner 3: A Primeira Segunda-Feira: O Curso */}
         <a
-          href={appendUtms("https://ocurso.ancorcarreira.com.br/")}
+          href={withUtms("https://ocurso.ancorcarreira.com.br/")}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"
@@ -112,7 +122,7 @@ export default function App() {
 
         {/* Banner 4: Livro Best Seller */}
         <a
-          href={appendUtms("https://amzn.to/4qS6vEp")}
+          href={withUtms("https://amzn.to/4qS6vEp")}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"
@@ -138,7 +148,7 @@ export default function App() {
 
         {/* Banner 7: DINÂMICO (LinkedIn ou Instagram) */}
         <a
-          href={appendUtms(banner7Href)}
+          href={withUtms(banner7Href)}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"
@@ -152,7 +162,7 @@ export default function App() {
 
         {/* Banner 8: Contato via WhatsApp */}
         <a
-          href={appendUtms("http://wa.me/5511999007624")}
+          href={withUtms("http://wa.me/5511999007624")}
           className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
           target="_blank"
           rel="noopener noreferrer"

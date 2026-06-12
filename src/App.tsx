@@ -13,6 +13,9 @@ import imgPalestras from "figma:asset/288b366f11d3c38401d574b0159e2820c4a5ddeb.p
 import imgLinkedin from "figma:asset/95711d847fb9841e88462015c7fa79cc3321d028.png";
 import imgWhatsApp from "figma:asset/afecbc82c2ee6c8c191850282e0f2aee449cf54f.png";
 
+// Banner Workshop
+import imgWorkshop from "figma:asset/e181caf17f12511fc31c15845ea4d42a38b6dea5.png";
+
 // NOVA IMAGEM LOCAL (Certifique-se que o arquivo banner-instagram.png está na mesma pasta deste App.tsx)
 import imgInstagram from "./banner-instagram.png";
 
@@ -77,6 +80,20 @@ export default function App() {
             Gestão de Carreira e Pós-Carreira para Executivos | Especialista em Longevidade Profissional | Colunista &amp; Palestrante | Cocriadora do Método ANCOR | Sócia-fundadora da Ancor Consultoria
           </p>
         </div>
+
+        {/* Banner 0: Workshop Do Topo ao Próximo Ciclo */}
+        <a
+          href={withUtms("https://workshop.ancorcarreira.com.br/")}
+          className="block w-full rounded-[32px] shadow-[0px_1px_3px_0px_rgba(0,0,0,0.1),0px_1px_2px_0px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ImageWithFallback
+            src={imgWorkshop}
+            alt="Workshop Do Topo ao Próximo Ciclo"
+            className="w-full h-auto rounded-[32px] block"
+          />
+        </a>
 
         {/* Banner 1: ANCOR Academy */}
         <a

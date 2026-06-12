@@ -14,7 +14,7 @@ import imgLinkedin from "figma:asset/95711d847fb9841e88462015c7fa79cc3321d028.pn
 import imgWhatsApp from "figma:asset/afecbc82c2ee6c8c191850282e0f2aee449cf54f.png";
 
 // Banner Workshop
-import imgWorkshop from "figma:asset/e181caf17f12511fc31c15845ea4d42a38b6dea5.png";
+import imgWorkshop from "./assets/Workshop.png";
 
 // NOVA IMAGEM LOCAL (Certifique-se que o arquivo banner-instagram.png está na mesma pasta deste App.tsx)
 import imgInstagram from "./banner-instagram.png";
